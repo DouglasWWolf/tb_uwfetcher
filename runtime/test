@@ -1,0 +1,29 @@
+
+source registers
+
+
+
+show_stats()
+{
+    printf "Userwave capacity is    : 0x%s\n" $(axi -hex $REG_HOST_CAPACITY)
+    printf "Userwave total length is: 0x%s\n" $(axi -hex $REG_UWC_TOTAL    ) 
+    printf "UWC provided is         : 0x%s\n" $(axi -hex $REG_UWC_PROVIDED )  
+    printf "UWC fetched             : 0x%s\n" $(axi -hex $REG_UWC_FETCHED  )      
+    printf "UWC host free           : 0x%s\n" $(axi -hex $REG_UWC_HOST_FREE)     
+    printf "\n"
+}
+
+axi $REG_HOST_ADDR_H 1
+axi $REG_HOST_ADDR_L 0
+
+axi $REG_HOST_CAPACITY $((1024 * 1024))
+axi $REG_UWC_TOTAL 259
+
+
+axi $REG_UWC_PROVIDED 0
+show_stats
+
+axi $REG_UWC_PROVIDED 259
+show_stats
+
+axi $REG_START_FETCHER 1
