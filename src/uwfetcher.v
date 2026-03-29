@@ -24,9 +24,7 @@
 
 module uwfetcher # (parameter DW = 512, AW=64, IW = 2)
 (
-    output[2:0] dbg_fsm_state,
-
-    (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
+     (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
     (* X_INTERFACE_PARAMETER = "ASSOCIATED_BUSIF M_AXI:axis_out, ASSOCIATED_RESET resetn" *)
     input   clk,
     input   resetn,
@@ -435,7 +433,5 @@ output_fifo
     .injectsbiterr_axis()
 );
 //=============================================================================
-
-assign dbg_fsm_state = fsm_state;
 
 endmodule

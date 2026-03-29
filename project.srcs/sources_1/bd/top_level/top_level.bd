@@ -23,7 +23,7 @@
       "sim_pcie": "",
       "data_consumer": "",
       "hier_0": {
-        "system_ila_0": "",
+        "system_ila": "",
         "userwave_ctl": "",
         "uwfetcher": ""
       }
@@ -1294,11 +1294,11 @@
           }
         },
         "components": {
-          "system_ila_0": {
+          "system_ila": {
             "vlnv": "xilinx.com:ip:system_ila:1.1",
             "xci_name": "top_level_system_ila_0_0",
             "xci_path": "ip/top_level_system_ila_0_0/top_level_system_ila_0_0.xci",
-            "inst_hier_path": "hier_0/system_ila_0",
+            "inst_hier_path": "hier_0/system_ila",
             "parameters": {
               "C_DATA_DEPTH": {
                 "value": "2048"
@@ -1310,7 +1310,7 @@
                 "value": "2"
               },
               "C_NUM_OF_PROBES": {
-                "value": "3"
+                "value": "2"
               },
               "C_SLOT": {
                 "value": "1"
@@ -2024,11 +2024,6 @@
               }
             },
             "ports": {
-              "dbg_fsm_state": {
-                "direction": "O",
-                "left": "2",
-                "right": "0"
-              },
               "clk": {
                 "type": "clk",
                 "direction": "I",
@@ -2123,14 +2118,14 @@
             "interface_ports": [
               "M_AXI",
               "uwfetcher/M_AXI",
-              "system_ila_0/SLOT_0_AXI"
+              "system_ila/SLOT_0_AXI"
             ]
           },
           "userwave_sys_axis_out": {
             "interface_ports": [
               "axis_out",
               "uwfetcher/axis_out",
-              "system_ila_0/SLOT_1_AXIS"
+              "system_ila/SLOT_1_AXIS"
             ]
           }
         },
@@ -2139,7 +2134,7 @@
             "ports": [
               "clk",
               "userwave_ctl/clk",
-              "system_ila_0/clk",
+              "system_ila/clk",
               "uwfetcher/clk"
             ]
           },
@@ -2153,7 +2148,7 @@
           "userwave_ctl_start_fetcher_stb": {
             "ports": [
               "userwave_ctl/start_fetcher_stb",
-              "system_ila_0/probe1",
+              "system_ila/probe1",
               "uwfetcher/start_stb"
             ]
           },
@@ -2181,16 +2176,10 @@
               "uwfetcher/uwc_total"
             ]
           },
-          "uwfetcher_dbg_fsm_state": {
-            "ports": [
-              "uwfetcher/dbg_fsm_state",
-              "system_ila_0/probe2"
-            ]
-          },
           "uwfetcher_start_engine_stb": {
             "ports": [
               "uwfetcher/start_engine_stb",
-              "system_ila_0/probe0"
+              "system_ila/probe0"
             ]
           },
           "uwfetcher_uw_host_free": {
